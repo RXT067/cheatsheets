@@ -23,11 +23,11 @@ $monospace-font: cousine, $system-mono;
  * Base colors
  */
 
-$base-body: #f1f3f5;
+$base-body: #1c1c1c;
 $base-panel: white;
-$base-head: #111;
-$base-text: #345;
-$base-mute: #667788; // gray
+$base-head: rgb(255, 255, 255);
+$base-text: rgb(202, 202, 202);
+$base-mute: #2d659c; // gray
 
 $base-a: adjust-color(#8370bd, $lightness: -5%); // indigo
 $base-b: adjust-color(#2b72a2, $lightness: -5%); // blue

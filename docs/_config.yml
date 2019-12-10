@@ -27,7 +27,7 @@ exclude:
 
 # Markdown
 
-highlighter: false
+highlighter: true
 markdown: kramdown
 kramdown:
   input: GFM
@@ -52,10 +52,10 @@ defaults:
 
 # Site info
 
-url: https://devhints.io
-title: Devhints.io cheatsheets
+url: https://rxt067.github.io/cheatsheets/
+title: something
 
 # GitHub metadata
 # https://help.github.com/articles/repository-metadata-on-github-pages/
 
-repository: rstacruz/cheatsheets
+repository: RXT067/cheatsheets
