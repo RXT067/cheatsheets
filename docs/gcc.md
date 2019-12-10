@@ -5,13 +5,21 @@ layout: 2017/sheet
 tags: [Featured]
 updated: 2019-12-19
 keywords:
-  - Data Types
+  - C
+  - Programming
+  - Programming Language
+  - Statically typed
 ---
 
 This page is in development, not to be used for training!
 
 FIXME: More info
 C programming is statically typed programming language
+
+See [ISO-9899](http://iso-9899.info/wiki/The_Standard)
+See [Charter](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm)
+See [Wiki](ttp://www.iso-9899.info/)
+See [Books](http://www.iso-9899.info/wiki/Books)
 
 ## Example
 ```c
@@ -70,6 +78,8 @@ ULONG_MAX   :   18446744073709551615
 USHRT_MAX   :   65535
 ```
 
+if `CHAR_BIT` is 8 then there's room for 8 value bits in a char. -> Char can be imterpreted as `11111111` but not as `111111111` assuming that `char` converts words into an integer (FIXME: fact check)
+
 Those are usually defined in limits.h or in float.h
 - Unix considers using `{FLT,DBL}_{MIN,MAX}` as legacy [unreliable_reference(fixme)](https://stackoverflow.com/a/5834690)
 
@@ -81,7 +91,7 @@ Those are usually defined in limits.h or in float.h
 
 See [implementation-defined constants](http://man7.org/linux/man-pages/man0/limits.h.0p.html)
 
-<!-- FIXME: Implement https://www.youtube.com/watch?v=k12BJGSc2Nc&list=PLHTh1InhhwT75gykhs7pqcR_uSiG601oh&index=56 -->
+FIXME: Implement https://www.youtube.com/watch?v=k12BJGSc2Nc&list=PLHTh1InhhwT75gykhs7pqcR_uSiG601oh&index=56
 
 ### Identificators
 Identificators can be following `abcefghijklmnopqrstuvwxyzABCDEFGHCIJKLMNOPQRSTUVWXYZ_0123456789`, but they can NOT start with a number.
@@ -96,7 +106,7 @@ int 5something = 15;
 //  ^ ILLEGAL! (?)
 ```
 
-### Integer
+### Integer (Rational/Irational)
 Stores rational and irational numbers from INT_MIN to INT_MAX.
 
 These limits are for example `-2147483647` to `2147483647`.
@@ -124,7 +134,7 @@ double <identificator> = 10.5;
 //                       ^^^^ decimal
 ```
 
-### Float
+### Float (Decimal)
 Float is 32-bit number used for storing decimal numbers from FLT_MIN to FLT_MAX.
 
 These limits are for example `0.000000` to `340282346638528859811704183484516925440.000000`
@@ -144,10 +154,14 @@ Characters (char) stores characters as integer value (i.e: A = 65)
 char <identificator> = 'A'; 
 
 printf("%c\n", <identificator>); // Returns A
-printf("%i\n", <identificator>); // Returns 65
+printf("%i\n", <identificator>); // Returns 65 (On amd64)
 ```
 
+A == 64 is standardized as ASCII (and later extended into other things, including Unicode) but C can run on systems that don’t use ASCII or even support it as an option. They’re relatively rare, but they’re out there (EBCDIC on IBM mainframes for instance)
+
 See [Conversion characters](http://www.asciitable.com/)
+
+Sidenote: Conversion characters reference mensiones those as Decimel as in "base-10 numbering system" not "floating point type" (https://en.wikipedia.org/wiki/Decimal)
 
 ### Character array
 
@@ -192,6 +206,163 @@ printf("%i, something); # Returns '64' (ASCII for 'A')
 ## Operators
 
 FIXME: implement
+
+Operators are used to create an expression
+
+```c
+// This is binary operator becuase plus has two operands
+init x = 5 + 5;
+//       ^^^^^ - Expression
+//       ^   ^ - Operands
+```
+
+There are unary, binary and tonary operators
+
+    **unary** = Works on one operand
+    **binary** = Works on two operands
+    **tonary** = Works on three operands
+
+### Comparison Operators
+`==` = Equal
+
+```c
+// If variable 'c' stores a value equal to value '5' -> Return true -> Outputs "Hello World"
+if(c == 5)
+{
+    printf("%s\n", "Hello World");
+}
+```
+
+`!=` = Not Equal
+
+```c
+// If variable c stores a value not equal to value '5' -> Return true -> Outputs "Hello World"
+if(c != 5)
+{
+    printf("%s\n", "Hello World");
+}
+```
+
+`<` = Left is smaller then right
+
+```c
+// If variable c stores value smaller then value '5' -> Return true -> Outputs "Hello World"
+if(c < 5)
+{
+    printf("%s\n", "Hello World");
+}
+```
+
+`>` = Left is bigger then right
+
+```c
+// If variable c stores value bigger then value '5' -> Return true -> Outputs "Hello World"
+if(c > 5)
+{
+    printf("%s\n", "Hello World");
+}
+```
+
+`<=` = Left is smaller or equal to right
+
+```c
+// If variable c stores value smaller or equal to value '5' -> Return true -> Outputs "Hello World"
+if(c <= 5)
+{
+    printf("%s\n", "Hello World");
+}
+```
+
+`>=` = Left is bigger or equal to right
+
+```c
+// If variable c stores value bigger or equal to value '5' -> Return true -> Outputs "Hello World"
+if(c >= 5)
+{
+    printf("%s\n", "Hello World");
+}
+```
+
+
+### Aritmetical operators (math)
+`+` = Addition
+
+```c
+// 10 is added by 7 -> value '17' is stored in variable 'x'
+int x = 10 + 7;
+```
+
+`-` = Substraction
+
+```c
+// 10 is subtracked by 3 -> value '7' is stored in variable 'x'
+int x = 10 - 3;
+```
+
+`/` = Division
+
+```c
+// 10 is devided by 2 -> value '5' is stored in variable 'x'
+int x = 10 / 2;
+```
+
+`*` = Multiplication
+
+```c
+// 10 is multiplied by 2 -> value '20' is stored in variable 'x'
+int x = 10 * 2;
+```
+
+`%` = Modules (reminder of interage devision)<br>
+
+```c
+// 10 devided by 3 and whatever is left is set as value of variable 'x' (Stores '1' in variable 'x')
+int x = 10 % 3;
+```
+
+
+#### Unary minus
+
+FIXME: More info needed
+
+```c
+int x = 5;
+int y = -x;
+
+// x is 5
+// y is -5
+```
+
+### Increments
+
+FIXME: Info needed
+
+```c
+// `a++;` is same as `a = a + 1;`
+a = 5;
+b = 5;
+b = a++;
+//   ^^ - this is evaulated after variable 'a'
+
+// a is 5
+// b is 6
+```
+
+### Pre-Increments
+
+FIXME: Info needed
+
+```c
+b = 5;
+a = 5;
+b = ++a;
+//  ^^ this is evaulated prior to variable 'a'
+
+// b is 6
+// a is 6
+```
+
+See [Operator precedence](https://en.cppreference.com/w/c/language/operator_precedence)
 
 ## Logic
 
