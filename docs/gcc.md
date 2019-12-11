@@ -39,7 +39,7 @@ int highestNumber(int numbers[], int size)
     {
         if(numbers[i] > largest)
         {
-            largest = ages[i];
+            largest = numbers[i];
         }
     }
     return largest;
@@ -57,6 +57,9 @@ int main() {
 ```
 
 ## Data types
+
+FIXME: Missing `long long`<br>
+FIXME: Missing `unsigned long long`
 
 Defined maximums depends per platform these are examples:
 ```
@@ -94,6 +97,8 @@ Those are usually defined in limits.h or in float.h
 
 See [implementation-defined constants](http://man7.org/linux/man-pages/man0/limits.h.0p.html)
 
+See [Reference for datatypes](https://www.programiz.com/c-programming/c-data-types)
+
 FIXME: Implement https://www.youtube.com/watch?v=k12BJGSc2Nc&list=PLHTh1InhhwT75gykhs7pqcR_uSiG601oh&index=56
 
 ### identifiers
@@ -109,8 +114,10 @@ int 5something = 15;
 //  ^ ILLEGAL! (?)
 ```
 
-### Integer (Rational/Irational)
-Stores rational and irational numbers from INT_MIN to INT_MAX.
+### Integer (Rational/Negative numbers)
+Stores rational numbers from INT_MIN to INT_MAX.
+
+Integer can not store irational number (FIXME: fact-check)
 
 These limits are for example `-2147483647` to `2147483647`.
 - Defined in `limits.h` on unix. [ref](http://man7.org/linux/man-pages/man0/limits.h.0p.html0)
@@ -121,12 +128,21 @@ These limits are for example `-2147483647` to `2147483647`.
 int <identifier> = 10;
 ```
 
-### Double (Decimal)
-Stores decimal numbers from DBL_MIN to DBL_MAX in 64-bit address (Not compatible with 32-bit systems).
+### Double (fixme: summary?)
+FIXME: 
+```
+a double can store values below 0 e.g. -DBL_MAX or -2
+it can also store values outside that range (positive and negative infinity)
+and other values that are not a number
+and it's not guaranteed to be 64 bits
+and I don't know what "not compatible with 32-bit systems" means, but I'm pretty sure it's wrong
+```
+
+<!-- Stores decimal numbers from DBL_MIN to DBL_MAX in 64-bit address (Not compatible with 32-bit systems). -->
 
 These limits are for example `0.000000` to `179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000.000000`.
 
-(FIXME: Rephrase)
+(FIXME: Rephrase)<br>
 Double can represent gigantic numbers as floats, but you lose a ton of precision!
 - `DBL_MAX - 1` will probably be the exact same number as `DBL_MAX`, because doubles don't have enough precision to differentiate between even different whole numbers when they're that size
 - the biggest double you can store where you can still differentiate between single whole number changes is something like 2^52-1, or 4503599627370495 (assuming IEEE double precision floating points)
@@ -137,15 +153,21 @@ double <identifier> = 10.5;
 //                       ^^^^ decimal
 ```
 
-### Float (Decimal)
-Float is 32-bit number used for storing decimal numbers from FLT_MIN to FLT_MAX.
+### Float (fixme: summary?)
+FIXME: 
+```
+"Float is 32-bit number used for storing decimal numbers" nope and nope
+there's no guarantee it's 32 bits, and it doesn't store decimals
+e.g. 0.1 cannot be represented exactly by a float
+```
+<!-- Float is 32-bit number used for storing decimal numbers from FLT_MIN to FLT_MAX. -->
 
 These limits are for example `0.000000` to `340282346638528859811704183484516925440.000000`
 
 ```c
 // Stores number 10.5 in <identifier> variable
 float <identifier> = 10.5;
-//                      ^^^^ decimal
+//                   ^^^^ decimal
 ```
 
 FLT_MIN and FLT_MAX are defined in `float.h` on unix where using these in `limits.h` is marked as legacy. (?)
