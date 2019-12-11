@@ -17,8 +17,11 @@ FIXME: More info
 C programming is statically typed programming language
 
 See [ISO-9899](http://iso-9899.info/wiki/The_Standard)
+
 See [Charter](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2086.htm)
+
 See [Wiki](ttp://www.iso-9899.info/)
+
 See [Books](http://www.iso-9899.info/wiki/Books)
 
 ## Example
@@ -85,7 +88,7 @@ Those are usually defined in limits.h or in float.h
 
 **Unsigned** datatypes sets minimal value of said data-type on `0` (Only rational numbers are allowed)
 ```c
-   unsigned int <identificator> = 10;
+   unsigned int <identifier> = 10;
 // ^^^^^^^^
 ```
 
@@ -93,14 +96,14 @@ See [implementation-defined constants](http://man7.org/linux/man-pages/man0/limi
 
 FIXME: Implement https://www.youtube.com/watch?v=k12BJGSc2Nc&list=PLHTh1InhhwT75gykhs7pqcR_uSiG601oh&index=56
 
-### Identificators
-Identificators can be following `abcefghijklmnopqrstuvwxyzABCDEFGHCIJKLMNOPQRSTUVWXYZ_0123456789`, but they can NOT start with a number.
+### identifiers
+identifiers can be following `abcefghijklmnopqrstuvwxyzABCDEFGHCIJKLMNOPQRSTUVWXYZ_0123456789`, but they can NOT start with a number.
 
-Standard method to write identificators is to use camel case -> `somethingIsNothing` (notice that first letter is lowercase)
+Standard method to write identifiers is to use camel case -> `somethingIsNothing` (notice that first letter is lowercase)
 
 ```c
 int something = 12;
-//  ^^^^^^^^^ identificator
+//  ^^^^^^^^^ identifier
 
 int 5something = 15;
 //  ^ ILLEGAL! (?)
@@ -114,8 +117,8 @@ These limits are for example `-2147483647` to `2147483647`.
 - Defined in `limits.h` on windows. [ref](https://docs.microsoft.com/en-us/cpp/cpp/integer-limits?view=vs-2019)
 
 ```c
-// Stores number 10 in <identificator> variable
-int <identificator> = 10;
+// Stores number 10 in <identifier> variable
+int <identifier> = 10;
 ```
 
 ### Double (Decimal)
@@ -129,8 +132,8 @@ Double can represent gigantic numbers as floats, but you lose a ton of precision
 - the biggest double you can store where you can still differentiate between single whole number changes is something like 2^52-1, or 4503599627370495 (assuming IEEE double precision floating points)
 
 ```c
-// Stores number 10.5 in <identificator> variable
-double <identificator> = 10.5;
+// Stores number 10.5 in <identifier> variable
+double <identifier> = 10.5;
 //                       ^^^^ decimal
 ```
 
@@ -140,8 +143,8 @@ Float is 32-bit number used for storing decimal numbers from FLT_MIN to FLT_MAX.
 These limits are for example `0.000000` to `340282346638528859811704183484516925440.000000`
 
 ```c
-// Stores number 10.5 in <identificator> variable
-float <identificator> = 10.5;
+// Stores number 10.5 in <identifier> variable
+float <identifier> = 10.5;
 //                      ^^^^ decimal
 ```
 
@@ -151,10 +154,10 @@ FLT_MIN and FLT_MAX are defined in `float.h` on unix where using these in `limit
 Characters (char) stores characters as integer value (i.e: A = 65)
 
 ```c
-char <identificator> = 'A'; 
+char <identifier> = 'A'; 
 
-printf("%c\n", <identificator>); // Returns A
-printf("%i\n", <identificator>); // Returns 65 (On amd64)
+printf("%c\n", <identifier>); // Returns A
+printf("%i\n", <identifier>); // Returns 65 (On amd64)
 ```
 
 A == 64 is standardized as ASCII (and later extended into other things, including Unicode) but C can run on systems that don’t use ASCII or even support it as an option. They’re relatively rare, but they’re out there (EBCDIC on IBM mainframes for instance)
@@ -167,7 +170,7 @@ Sidenote: Conversion characters reference mensiones those as Decimel as in "base
 
 FIXME: More info requried
 ```c
-char <identificator>[] = "char "
+char <identifier>[] = "char "
 ```
 
 ### Boolean
@@ -176,11 +179,11 @@ Stores true or false in a variable
 ```c
 #include <stdbool.h> // Has to be declared otherwise compiler won't recognize booleans
 
-// Stores 1 or 0 for false in <identificator>
-bool <identificator> = false;
+// Stores 1 or 0 for false in <identifier>
+bool <identifier> = false;
 ```
 
-(FIXME: Rephrase)
+(FIXME: Rephrase)<br>
 In binary 0 is considered as false and 1 is considered as true this depends on the environment used for example UNIX considers 0 as true and 1~255 as false.
 
 ## Print formatted (printf)
@@ -200,7 +203,7 @@ char something = 'A';
 printf("%i, something); # Returns '64' (ASCII for 'A')
 ```
 
-- [Formatted output conversion](https://linux.die.net/man/3/printf)
+- [Formatted output conversion](https://linux.die.net/man/3/printf)<br>
 - [Printf wikipedia](https://en.wikipedia.org/wiki/Printf_format_string)
 
 ## Operators
@@ -214,13 +217,51 @@ Operators are used to create an expression
 init x = 5 + 5;
 //       ^^^^^ - Expression
 //       ^   ^ - Operands
+//         ^   - Operator
 ```
 
 There are unary, binary and tonary operators
 
-    **unary** = Works on one operand
-    **binary** = Works on two operands
-    **tonary** = Works on three operands
+    **unary** = Works on one operand<br>
+    **binary** = Works on two operands<br>
+    **tonary** = Works on three operands<br>
+
+
+### Aritmetical operators (math)
+`+` = Addition
+
+```c
+// 10 is added by 7 -> value '17' is stored in variable 'x'
+int x = 10 + 7;
+```
+
+`-` = Substraction
+
+```c
+// 10 is subtracked by 3 -> value '7' is stored in variable 'x'
+int x = 10 - 3;
+```
+
+`/` = Division
+
+```c
+// 10 is devided by 2 -> value '5' is stored in variable 'x'
+int x = 10 / 2;
+```
+
+`*` = Multiplication
+
+```c
+// 10 is multiplied by 2 -> value '20' is stored in variable 'x'
+int x = 10 * 2;
+```
+
+`%` = Modules (reminder of interage devision)<br>
+
+```c
+// 10 devided by 3 and whatever is left is set as value of variable 'x' (Stores '1' in variable 'x')
+int x = 10 % 3;
+```
 
 ### Comparison Operators
 `==` = Equal
@@ -281,43 +322,6 @@ if(c >= 5)
 {
     printf("%s\n", "Hello World");
 }
-```
-
-
-### Aritmetical operators (math)
-`+` = Addition
-
-```c
-// 10 is added by 7 -> value '17' is stored in variable 'x'
-int x = 10 + 7;
-```
-
-`-` = Substraction
-
-```c
-// 10 is subtracked by 3 -> value '7' is stored in variable 'x'
-int x = 10 - 3;
-```
-
-`/` = Division
-
-```c
-// 10 is devided by 2 -> value '5' is stored in variable 'x'
-int x = 10 / 2;
-```
-
-`*` = Multiplication
-
-```c
-// 10 is multiplied by 2 -> value '20' is stored in variable 'x'
-int x = 10 * 2;
-```
-
-`%` = Modules (reminder of interage devision)<br>
-
-```c
-// 10 devided by 3 and whatever is left is set as value of variable 'x' (Stores '1' in variable 'x')
-int x = 10 % 3;
 ```
 
 
