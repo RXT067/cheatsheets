@@ -115,7 +115,7 @@ int 5something = 15;
 ```
 
 ### Integer (Rational/Negative numbers)
-Stores rational numbers from INT_MIN to INT_MAX.
+Stores rational and negative numbers from INT_MIN to INT_MAX.
 
 Integer can not store irational number (FIXME: fact-check)
 
