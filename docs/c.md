@@ -1,6 +1,6 @@
 ---
-title: gcc
-category: gcc
+title: C
+category: C
 layout: 2017/sheet
 tags: [Featured]
 updated: 2019-12-19
@@ -11,7 +11,11 @@ keywords:
   - Statically typed
 ---
 
-This page is in development, not to be used for training!
+This page is in development, NOT TO BE USED FOR TRAINING!!
+
+FIXME: Check spelling
+
+FIXME: check definition of words used
 
 FIXME: More info
 C programming is statically typed programming language
@@ -57,9 +61,6 @@ int main() {
 ```
 
 ## Data types
-
-FIXME: Missing `long long`<br>
-FIXME: Missing `unsigned long long`
 
 Defined maximums depends per platform these are examples:
 ```
@@ -207,6 +208,14 @@ bool <identifier> = false;
 
 (FIXME: Rephrase)<br>
 In binary 0 is considered as false and 1 is considered as true this depends on the environment used for example UNIX considers 0 as true and 1~255 as false.
+
+### long long
+
+FIXME: Add info
+
+### unsigned long long
+
+FIXME: Add info
 
 ## Print formatted (printf)
 
