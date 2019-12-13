@@ -14,4 +14,5 @@ RUN apt install -y jekyll
 USER gitpod
 
 # Install dependencies for jekyll (bundle shoudn't run on root)
-RUN bundle install
+RUN pwd
+RUN bundle install --gemfile=Gemfile
