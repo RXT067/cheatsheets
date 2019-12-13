@@ -5,9 +5,8 @@ image:
 ports:
   - port: 5900
     onOpen: ignore
-  - port: 6080
-    onOpen: open-preview
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
   - init: bundle install
+    command: printf 'FIXME: %s\n' "Cache bundle dependencies to avoid building on runtime"

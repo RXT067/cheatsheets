@@ -1,5 +1,11 @@
 # Developer notes
 
+## Gitpod
+This repository supports online IDE [gitpot](https://gitpod.io).
+
+Note that you can preview build `html` files using built-in viewer.
+!()[https://user-images.githubusercontent.com/11302521/70831797-bdfdb280-1df3-11ea-9501-e78f37224ec3.png]
+
 ## Starting a local instance
 
 This starts Jekyll and Webpack. This requires recent versions of [Node.js], [Yarn], [Ruby] and [Bundler] installed.
