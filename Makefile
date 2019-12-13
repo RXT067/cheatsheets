@@ -3,10 +3,8 @@ PORT ?= 3000
 HOST ?= 127.0.0.1
 
 help:
-	@echo
-	@echo Makefile targets
+	@printf '%s\n' '' "Makefile targets"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-	@echo
 
 # Builds intermediate files. Needs a _site built first though
 update: _site critical
@@ -56,8 +54,12 @@ test: _site ## Runs rudimentary tests
 	@grep "<script src" _site/react.html >/dev/null
 
 test-warning:
-	@echo "========="
-	@echo "If your build failed at this point, it means"
-	@echo "the site failed to generate. Check the project"
-	@echo "out locally and try to find out why."
-	@echo "========="
+	@printf '%s\n' "========="
+	@printf '%s\n' "If your build failed at this point, it means"
+	@printf '%s\n' "the site failed to generate. Check the project"
+	@printf '%s\n' "out locally and try to find out why."
+	@printf '%s\n' "========="
+
+test-page:
+	@printf '%s\n' "FIXME: Build only the page that is expected for development"
+	#bundle exec jekyll build --source docs/ --incremental src/docs/C18.md
