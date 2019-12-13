@@ -8,4 +8,4 @@ USER root
 RUN apt update
 
 # Install dependencies
-RUN apt install -y jekyll
+RUN apt install -y jekyll firefox
