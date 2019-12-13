@@ -10,5 +10,8 @@ RUN apt update
 # Install dependencies
 RUN apt install -y jekyll
 
-# Install dependencies for jekyll
+# Switch on user
+USER gitpod
+
+# Install dependencies for jekyll (bundle shoudn't run on root)
 RUN bundle install
