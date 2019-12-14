@@ -1,12 +1,13 @@
-image:
-  file: .gitpod.Dockerfile
+image: gitpod/workspace-full
 
-# List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/43_config_ports/
-ports:
-  - port: 5900
-    onOpen: ignore
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
 
-# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
+# Each '-' under 'tasks' corresponds to a separete terminal
 tasks:
+  # Runs only when a workflow is started
   - init: bundle install
-    command: printf 'FIXME: %s\n' "Cache bundle dependencies to avoid building on runtime"
